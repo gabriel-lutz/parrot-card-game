@@ -22,7 +22,7 @@ img{
     justify-content: space-evenly;
     align-items: center;
 }
-.card{
+.carta{
     background: #A7E9AF;
     width: 117px;
     height: 146px;
@@ -32,4 +32,8 @@ img{
     align-items: center;
     margin: 17px 17px;
     border: 1px solid #A7E9AF;
+}
+
+.selecionado{
+    background: #00E9AF;
 }
