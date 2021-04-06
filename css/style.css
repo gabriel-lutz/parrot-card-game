@@ -1,12 +1,12 @@
 body{
     font-family: 'Roboto', sans-serif;
     color: #75B79E;
-    font-size: 56px;
     background-color: #EEF9BF;
     text-align: center;
 }
 h1{
     margin: 40px 0;
+    font-size: 56px;
 }
 img{
     width: 100px;
@@ -15,7 +15,7 @@ img{
 
 .tabuleiro{
     height: 100%;
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -31,4 +31,5 @@ img{
     justify-content: center;
     align-items: center;
     margin: 17px 17px;
+    border: 1px solid #A7E9AF;
 }
