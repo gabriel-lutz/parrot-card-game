@@ -35,6 +35,7 @@ img{
     backface-visibility: visible;
 }
 
-.selecionado{
+.selecionado, .certo{
     background: #00E9AF;
 }
+
