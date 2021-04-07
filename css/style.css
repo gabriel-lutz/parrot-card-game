@@ -32,6 +32,7 @@ img{
     align-items: center;
     margin: 17px 17px;
     border: 1px solid #A7E9AF;
+    backface-visibility: visible;
 }
 
 .selecionado{
