@@ -9,8 +9,8 @@ h1{
     font-size: 56px;
 }
 img{
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    
 }
 
 .tabuleiro{
@@ -23,19 +23,39 @@ img{
     align-items: center;
 }
 .carta{
-    background: #A7E9AF;
     width: 117px;
     height: 146px;
-    border-radius: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     margin: 17px 17px;
-    border: 1px solid #A7E9AF;
-    backface-visibility: visible;
+}
+.layout{
+     width: 100%;
+        height: 100%;
+        background-color: #A7E9AF;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        backface-visibility: hidden;
+        transition: all .5s;
+        transform-style: preserve-3d;
+}
+.verso-invisivel{
+    transform: rotateY(180deg) ;
 }
 
-.selecionado, .certo{
-    background: #00E9AF;
+.carta .verso{
+    transform: rotateY(0deg) ;
 }
+
+.carta .frente{
+    transform: rotateY(-180deg) ;
+}
+
+
+
+
 
