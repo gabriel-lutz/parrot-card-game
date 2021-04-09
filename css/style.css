@@ -10,9 +10,7 @@ h1{
 }
 img{
     width: 100%;
-    
 }
-
 .tabuleiro{
     height: 100%;
     width: 70%;
@@ -34,7 +32,6 @@ img{
         background-color: #A7E9AF;
         border-radius: 10px;
         box-shadow: 1px 1px 1px rgba(0,0,0,.3);
-        
         display: flex;
         align-items: center;
         justify-content: center;
@@ -54,6 +51,36 @@ img{
 .carta .frente{
     transform: rotateY(-180deg) ;
 }
+
+.fim-de-jogo{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(255,255,255,.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.visivel{
+    display: flex;
+}
+
+.reiniciar{
+    z-index: 2;
+    width: 30%;
+    background-color: #A7E9AF;
+    border-radius: 10px;
+    padding: 20px;
+}
+.reiniciar h1{
+    font-size: 30px;
+    color: white;
+}
+
 
 
 

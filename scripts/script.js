@@ -10,27 +10,40 @@ let par2;
 let cartaClicada1;
 let cartaClicada2;
 let numeroJogadas = 0;
-
 let cartas = Number(prompt("Com quantas cartas será o seu jogo?"));
-while((cartas%2) !== 0 || cartas < 4 || cartas > 14){
-    cartas = Number(prompt("Com quantas cartas será o seu jogo?"));
-}
+iniciarJogo();
 
-for(let i =0 ; i < cartas/2; i++){
-    colocarCartasDiv(tiposCartasTotal[i], parCartas[i]);
+function iniciarJogo(){
+    if(cartas === 0){
+        const colocar = document.querySelector(".tabuleiro");
+        colocar.innerHTML = ""
+        divEmbaralhada.length = 0;
+        const telaFimDeJogo = document.querySelector(".fim-de-jogo")
+        telaFimDeJogo.classList.remove("visivel")
+    }
+
+
+    while((cartas%2) !== 0 || cartas < 4 || cartas > 14){
+        cartas = Number(prompt("Com quantas cartas será o seu jogo?"));
+    }
+
+    
+
+    for(let i =0 ; i < cartas/2; i++){
+        colocarCartasDiv(tiposCartasTotal[i], parCartas[i]);
+    }
+    divEmbaralhada.sort(comparador)
+    colocarCartas();
 }
-divEmbaralhada.sort(comparador)
-colocarCartas();
 
 function colocarCartasDiv(endereco, par){
-
     divEmbaralhada.push(`<div class='carta' onclick='virar(this, "${par}")'><div class='layout'><img src='imagens/front.png' alt=''></div><div class='verso-invisivel layout'><img src='${endereco}' alt=''></div></div>`)  
     divEmbaralhada.push(`<div class='carta' onclick='virar(this, "${par}")'><div class='layout'><img src='imagens/front.png' alt=''></div><div class='verso-invisivel layout'><img src='${endereco}' alt=''></div></div>`)
 }
 
 function colocarCartas(){
     const colocar = document.querySelector(".tabuleiro");
-    colocar.innerHTML =  divEmbaralhada;
+    colocar.innerHTML =  divEmbaralhada.join("");
 }
 
 function virar(cartaClicada, parClicado){
@@ -65,27 +78,56 @@ function virar(cartaClicada, parClicado){
             cartaClicada2.removeAttribute("onclick")
             jogadaRound = 0;
         }else{            
-            setTimeout(function(){
-                for(let i=0; i <2; i++){
-                const reset = document.querySelector(".selecionado")
-                reset.classList.remove("selecionado");
-                const resetaFrente = reset.querySelector(`div:nth-child(1)`)
-                const resetaVerso = reset.querySelector(`div:nth-child(2)`)
-                resetaFrente.classList.remove("frente")
-                resetaVerso.classList.remove("verso")
-                resetaVerso.classList.add("verso-invisivel")
-                }
-                jogadaRound = 0;
-            }, 1000)
+            setTimeout(viraCartaNovamente, 1000)
         }
     }
     const fim = document.querySelectorAll(".certo");
     if(fim.length === cartas){
-        alert(`voce ganhou em ${numeroJogadas/2} jogadas`)
+        fimDeJogo()
+        
     }
 }
 
+function viraCartaNovamente(){
+    for(let i=0; i <2; i++){
+    const reset = document.querySelector(".selecionado")
+    reset.classList.remove("selecionado");
+    const resetaFrente = reset.querySelector(`div:nth-child(1)`)
+    const resetaVerso = reset.querySelector(`div:nth-child(2)`)
+    resetaFrente.classList.remove("frente")
+    resetaVerso.classList.remove("verso")
+    resetaVerso.classList.add("verso-invisivel")
+    }
+    jogadaRound = 0;
+}
+
+function fimDeJogo(){
+    cartas = 0;
+    const telaFimDeJogo = document.querySelector(".fim-de-jogo")
+    telaFimDeJogo.classList.add("visivel")
+}
 
 function comparador(){
     return Math.random() - 0.5;
 }
+
+
+        let desejado = 0;
+      let segundos = 0;
+      let id = 0;
+      let atualiza = document.querySelector(".contador");
+      function contar() {
+        desejado = prompt("quantos segundos tera o cotador?");
+        atualiza.innerHTML = segundos;
+        id = setInterval(incrementa, 1000);
+      }
+
+      function incrementa() {
+        if (segundos < desejado) {
+          segundos++;
+          atualiza.innerHTML = segundos;
+        } else {
+          alert("O jantar está pronto");
+          clearInterval(id);
+        }
+      }
