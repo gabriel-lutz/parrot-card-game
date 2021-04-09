@@ -71,7 +71,7 @@ img{
 
 .reiniciar{
     z-index: 2;
-    width: 30%;
+    width: 55%;
     background-color: #A7E9AF;
     border-radius: 10px;
     padding: 20px;
@@ -81,8 +81,9 @@ img{
     color: white;
 }
 
-
-
-
-
-
+.contador{
+    position: fixed;
+    top: 20px;
+    right: 15%;
+    font-size: 20px;
+}
